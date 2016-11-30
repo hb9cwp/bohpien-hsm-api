@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.github.edipermadi.bohpien.api;
 
-service BohpienService {
-
+message UUID{
+    uint64 msb = 1;
+    uint64 lsb = 2;
 }

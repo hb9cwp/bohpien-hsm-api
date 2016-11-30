@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+
+enum DigestMechanism {
+    MD2 = 1;
+    MD4 = 2;
+    MD5 = 3;
+
+    RIPEMD_128 = 4;
+    RIPEMD_160 = 5;
+    RIPEMD_256 = 6;
+    RIPEMD_320 = 7;
+
+    SHA1 = 8;
+    SHA2_224 = 9;
+    SHA2_256 = 10;
+    SHA2_384 = 11;
+    SHA2_512 = 12;
+    SHA3_224 = 13;
+    SHA3_256 = 14;
+    SHA3_384 = 15;
+    SHA3_512 = 16;
+
+    KECCAK_224 = 17;
+    KECCAK_256 = 18;
+    KECCAK_288 = 19;
+    KECCAK_384 = 20;
+    KECCAK_512 = 21;
+
+    SHAKE_128 = 22;
+    SHAKE_256 = 23;
+
+    SKEIN_256 = 24;
+    SKEIN_512 = 25;
+    SKEIN_1024 = 26;
+
+    GOST3411_256 = 27;
+    GOST3411_2012_256 = 28;
+    GOST3411_2012_512 = 29;
+
+    SM3_256 = 30;
+    TIGER_192 = 31;
+    WHIRLPOOL_512 = 32;
+
+}
+
+enum DigestErrorCode {
+    DIGEST_ERROR_NONE = 0;
+    DIGEST_ERROR_UNKNOWN_MECHANISM = 1;
+    DIGEST_ERROR_SESSION_NOT_FOUND = 2;
+    DIGEST_ERROR_SESSION_CLOSED = 3;
+}
+
+message DigestInitRequest {
+    DigestMechanism mechanism = 1;
+}
+
+message DigestInitResponse {
+    DigestErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message DigestUpdateRequest {
+    UUID session_id = 1;
+    bytes data = 2;
+}
+
+message DigestUpdateResponse {
+    DigestErrorCode error_code = 1;
+}
+
+message DigestFinalRequest {
+    UUID session_id = 1;
+}
+
+message DigestFinalResponse {
+    DigestErrorCode error_code = 1;
+    bytes digest = 2;
+}
+
+message DigestKeyRequest {
+    UUID session_id = 1;
+    UUID key_handle = 2;
+}
+
+message DigestKeyResponse {
+    DigestErrorCode error_code = 1;
+    bytes digest = 2;
+}
+
+message DigestDataRequest {
+    UUID session_id = 1;
+    bytes data = 2;
+}
+
+message DigestDataResponse {
+    DigestErrorCode error_code = 1;
+    bytes digest = 2;
+}

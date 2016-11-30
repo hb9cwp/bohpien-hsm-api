@@ -7,3 +7,7 @@ Bohpien HSM is an MIT licensed open source HSM (Hardware Security Module) that e
 machine. The main API is written in GRPC so that:
 - Interfaces can be used for both client and server side
 - Underlying service implementation can be implemented in various programming languages.
+
+## Features
+Bohpien HSM supports the following functions:
+- Message digesting

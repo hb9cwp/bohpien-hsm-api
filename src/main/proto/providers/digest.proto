@@ -26,25 +26,20 @@ enum DigestMechanism {
 
     KECCAK_224 = 16;
     KECCAK_256 = 17;
-    KECCAK_288 = 18;
-    KECCAK_384 = 19;
-    KECCAK_512 = 20;
+    KECCAK_384 = 18;
+    KECCAK_512 = 19;
 
-    SHAKE_128 = 21;
-    SHAKE_256 = 22;
+    SKEIN_256 = 20;
+    SKEIN_512 = 21;
+    SKEIN_1024 = 22;
 
-    SKEIN_256 = 23;
-    SKEIN_512 = 24;
-    SKEIN_1024 = 25;
+    GOST3411_256 = 23;
+    GOST3411_2012_256 = 24;
+    GOST3411_2012_512 = 25;
 
-    GOST3411_256 = 26;
-    GOST3411_2012_256 = 27;
-    GOST3411_2012_512 = 28;
-
-    SM3_256 = 29;
-    TIGER_192 = 30;
-    WHIRLPOOL_512 = 31;
-
+    SM3_256 = 26;
+    TIGER_192 = 27;
+    WHIRLPOOL_512 = 28;
 }
 
 enum DigestErrorCode {

@@ -3,12 +3,19 @@ syntax = "proto3";
 package com.github.edipermadi.bohpien.api;
 
 import "providers/digest.proto";
+import "providers/encrypt.proto";
 
 service BohpienService {
     // Message Digest Functions
-    rpc DigestInit(DigestInitRequest) returns (DigestInitResponse);
-    rpc DigestUpdate(DigestUpdateRequest) returns (DigestUpdateResponse);
-    rpc DigestFinal(DigestUpdateRequest) returns (DigestUpdateResponse);
-    rpc DigestKey(DigestKeyRequest) returns (DigestKeyResponse);
-    rpc DigestData(DigestDataRequest) returns (DigestDataResponse);
+    rpc DigestInit (DigestInitRequest) returns (DigestInitResponse);
+    rpc DigestUpdate (DigestUpdateRequest) returns (DigestUpdateResponse);
+    rpc DigestFinal (DigestUpdateRequest) returns (DigestUpdateResponse);
+    rpc DigestKey (DigestKeyRequest) returns (DigestKeyResponse);
+    rpc DigestData (DigestDataRequest) returns (DigestDataResponse);
+
+    // Message Encryption
+    rpc EncryptInit (EncryptInitRequest) returns (EncryptInitResponse);
+    rpc EncryptUpdate (EncryptUpdateRequest) returns (EncryptUpdateResponse);
+    rpc EncryptFinal (EncryptFinalRequest) returns (EncryptFinalResponse);
+    rpc Encrypt (EncryptRequest) returns (EncryptResponse);
 }

@@ -2,46 +2,48 @@ syntax = "proto3";
 
 package com.github.edipermadi.bohpien.api;
 
+import "providers/uuid.proto";
+
 enum DigestMechanism {
-    MD2 = 1;
-    MD4 = 2;
-    MD5 = 3;
+    MD2 = 0;
+    MD4 = 1;
+    MD5 = 2;
 
-    RIPEMD_128 = 4;
-    RIPEMD_160 = 5;
-    RIPEMD_256 = 6;
-    RIPEMD_320 = 7;
+    RIPEMD_128 = 3;
+    RIPEMD_160 = 4;
+    RIPEMD_256 = 5;
+    RIPEMD_320 = 6;
 
-    SHA1 = 8;
-    SHA2_224 = 9;
-    SHA2_256 = 10;
-    SHA2_384 = 11;
-    SHA2_512 = 12;
-    SHA3_224 = 13;
-    SHA3_256 = 14;
-    SHA3_384 = 15;
-    SHA3_512 = 16;
+    SHA1 = 7;
+    SHA2_224 = 8;
+    SHA2_256 = 9;
+    SHA2_384 = 10;
+    SHA2_512 = 11;
+    SHA3_224 = 12;
+    SHA3_256 = 13;
+    SHA3_384 = 14;
+    SHA3_512 = 15;
 
-    KECCAK_224 = 17;
-    KECCAK_256 = 18;
-    KECCAK_288 = 19;
-    KECCAK_384 = 20;
-    KECCAK_512 = 21;
+    KECCAK_224 = 16;
+    KECCAK_256 = 17;
+    KECCAK_288 = 18;
+    KECCAK_384 = 19;
+    KECCAK_512 = 20;
 
-    SHAKE_128 = 22;
-    SHAKE_256 = 23;
+    SHAKE_128 = 21;
+    SHAKE_256 = 22;
 
-    SKEIN_256 = 24;
-    SKEIN_512 = 25;
-    SKEIN_1024 = 26;
+    SKEIN_256 = 23;
+    SKEIN_512 = 24;
+    SKEIN_1024 = 25;
 
-    GOST3411_256 = 27;
-    GOST3411_2012_256 = 28;
-    GOST3411_2012_512 = 29;
+    GOST3411_256 = 26;
+    GOST3411_2012_256 = 27;
+    GOST3411_2012_512 = 28;
 
-    SM3_256 = 30;
-    TIGER_192 = 31;
-    WHIRLPOOL_512 = 32;
+    SM3_256 = 29;
+    TIGER_192 = 30;
+    WHIRLPOOL_512 = 31;
 
 }
 
@@ -81,7 +83,7 @@ message DigestFinalResponse {
 
 message DigestKeyRequest {
     UUID session_id = 1;
-    UUID key_handle = 2;
+    UUID key_id = 2;
 }
 
 message DigestKeyResponse {

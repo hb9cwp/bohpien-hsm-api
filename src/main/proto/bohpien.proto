@@ -9,7 +9,7 @@ service BohpienService {
     // Message Digest Functions
     rpc DigestInit (DigestInitRequest) returns (DigestInitResponse);
     rpc DigestUpdate (DigestUpdateRequest) returns (DigestUpdateResponse);
-    rpc DigestFinal (DigestUpdateRequest) returns (DigestUpdateResponse);
+    rpc DigestFinal (DigestFinalRequest) returns (DigestFinalResponse);
     rpc DigestKey (DigestKeyRequest) returns (DigestKeyResponse);
     rpc DigestData (DigestDataRequest) returns (DigestDataResponse);
 

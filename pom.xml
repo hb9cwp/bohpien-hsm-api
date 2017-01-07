@@ -8,7 +8,7 @@
     <description>GRPC API definition of Bohpien HSM</description>
     <url>https://github.com/edipermadi/bohpien-hsm-api</url>
 
-    <groupId>edipermadi.github.com</groupId>
+    <groupId>com.github.edipermadi</groupId>
     <artifactId>bohpien-hsm-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 

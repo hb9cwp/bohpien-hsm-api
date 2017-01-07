@@ -47,6 +47,7 @@ enum DigestErrorCode {
     DIGEST_ERROR_UNKNOWN_MECHANISM = 1;
     DIGEST_ERROR_SESSION_NOT_FOUND = 2;
     DIGEST_ERROR_SESSION_CLOSED = 3;
+    DIGEST_ERROR_SYSTEM = 4;
 }
 
 message DigestInitRequest {

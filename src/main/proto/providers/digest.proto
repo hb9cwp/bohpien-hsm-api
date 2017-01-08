@@ -77,7 +77,7 @@ message DigestFinalResponse {
 }
 
 message DigestKeyRequest {
-    UUID session_id = 1;
+    DigestMechanism mechanism = 1;
     UUID key_id = 2;
 }
 
@@ -87,7 +87,7 @@ message DigestKeyResponse {
 }
 
 message DigestDataRequest {
-    UUID session_id = 1;
+    DigestMechanism mechanism = 1;
     bytes data = 2;
 }
 

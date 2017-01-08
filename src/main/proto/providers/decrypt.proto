@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+
+import "providers/uuid.proto";
+import "providers/cipher.proto";
+
+enum DecryptErrorCode {
+    DECRYPT_ERROR_NONE = 0;
+    DECRYPT_ERROR_UNKNOWN_MECHANISM = 1;
+    DECRYPT_ERROR_SESSION_NOT_FOUND = 2;
+    DECRYPT_ERROR_KEY_NOT_FOUND = 3;
+    DECRYPT_ERROR_KEY_NOT_INAVLID = 4;
+    DECRYPT_ERROR_PADDING_INAVLID = 5;
+    DECRYPT_ERROR_SYSTEM = 6;
+}
+
+message DecryptInitRequest {
+    CipherAlgorithm algorithm = 1;
+    CipherMode mode = 2;
+    CipherPadding padding = 3;
+    UUID key_id = 4;
+}
+
+message DecryptInitResponse {
+    DecryptErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message DecryptRequest {
+    CipherAlgorithm algorithm = 1;
+    CipherMode mode = 2;
+    CipherPadding padding = 3;
+    UUID key_id = 4;
+    bytes ciphertext = 5;
+}
+
+message DecryptResponse {
+    DecryptErrorCode error_code = 1;
+    bytes plaintext = 2;
+}
+
+message DecryptUpdateRequest {
+    UUID session_id = 1;
+    bytes ciphertext = 2;
+}
+
+message DecryptUpdateResponse {
+    DecryptErrorCode error_code = 1;
+}
+
+message DecryptFinalRequest {
+    UUID session_id = 1;
+}
+
+message DecryptFinalResponse {
+    DecryptErrorCode error_code = 1;
+    bytes plaintext = 2;
+}
+
+message DecryptInfoRequest {
+    UUID session_id = 1;
+}
+
+message DecryptInfoResponse {
+    DecryptErrorCode error_code = 1;
+    CipherAlgorithm algorithm = 2;
+    CipherMode mode = 3;
+    CipherPadding padding = 4;
+    UUID key_id = 5;
+}

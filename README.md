@@ -11,3 +11,4 @@ machine. The main API is written in GRPC so that:
 ## Features
 Bohpien HSM supports the following functions:
 - Message digesting
+- Encryption functions

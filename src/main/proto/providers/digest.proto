@@ -46,8 +46,7 @@ enum DigestErrorCode {
     DIGEST_ERROR_NONE = 0;
     DIGEST_ERROR_UNKNOWN_MECHANISM = 1;
     DIGEST_ERROR_SESSION_NOT_FOUND = 2;
-    DIGEST_ERROR_SESSION_CLOSED = 3;
-    DIGEST_ERROR_SYSTEM = 4;
+    DIGEST_ERROR_SYSTEM = 3;
 }
 
 message DigestInitRequest {
@@ -95,4 +94,13 @@ message DigestDataRequest {
 message DigestDataResponse {
     DigestErrorCode error_code = 1;
     bytes digest = 2;
+}
+
+message DigestInfoRequest {
+    UUID session_id = 1;
+}
+
+message DigestInfoResponse {
+    DigestErrorCode error_code = 1;
+    DigestMechanism mechanism = 2;
 }

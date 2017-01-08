@@ -8,7 +8,7 @@ enum EncryptionAlgorithm {
     AES = 0;
     AES_WRAP = 1;
     BLOWFISH = 2;
-    CAMELLIA  = 3;
+    CAMELLIA = 3;
     CAMELLIA_WRAP = 4;
     CAST5 = 5;
     CAST6 = 6;
@@ -57,6 +57,11 @@ enum EncryptionPadding {
 
 enum EncryptErrorCode {
     ENCRYPT_ERROR_NONE = 0;
+    ENCRYPT_ERROR_UNKNOWN_MECHANISM = 1;
+    ENCRYPT_ERROR_SESSION_NOT_FOUND = 2;
+    ENCRYPT_ERROR_KEY_NOT_FOUND = 3;
+    ENCRYPT_ERROR_KEY_NOT_INAVLID = 4;
+    ENCRYPT_ERROR_SYSTEM = 5;
 }
 
 message EncryptInitRequest {
@@ -72,7 +77,8 @@ message EncryptInitResponse {
 }
 
 message EncryptUpdateRequest {
-
+    UUID session_id = 1;
+    bytes data = 2;
 }
 
 message EncryptUpdateResponse {
@@ -80,17 +86,32 @@ message EncryptUpdateResponse {
 }
 
 message EncryptFinalRequest {
-
+    UUID session_id = 1;
 }
 
 message EncryptFinalResponse {
     EncryptErrorCode error_code = 1;
+    bytes data = 2;
 }
 
 message EncryptRequest {
-
+    bytes data = 1;
+    UUID key_id = 2;
 }
 
 message EncryptResponse {
     EncryptErrorCode error_code = 1;
+    bytes data = 2;
+}
+
+message EncryptInfoRequest{
+    UUID session_id = 1;
+}
+
+message EncryptInfoResponse{
+    EncryptErrorCode error_code = 1;
+    EncryptionAlgorithm algorithm = 2;
+    EncryptionMode mode = 3;
+    EncryptionPadding padding = 4;
+    UUID key_id = 5;
 }

@@ -12,10 +12,12 @@ service BohpienService {
     rpc DigestFinal (DigestFinalRequest) returns (DigestFinalResponse);
     rpc DigestKey (DigestKeyRequest) returns (DigestKeyResponse);
     rpc DigestData (DigestDataRequest) returns (DigestDataResponse);
+    rpc DigestInfo(DigestInfoRequest) returns (DigestInfoResponse);
 
     // Message Encryption
     rpc EncryptInit (EncryptInitRequest) returns (EncryptInitResponse);
     rpc EncryptUpdate (EncryptUpdateRequest) returns (EncryptUpdateResponse);
     rpc EncryptFinal (EncryptFinalRequest) returns (EncryptFinalResponse);
     rpc Encrypt (EncryptRequest) returns (EncryptResponse);
+    rpc EncryptInfo (EncryptInfoRequest) returns (EncryptInfoResponse);
 }

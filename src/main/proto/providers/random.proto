@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+
+import "providers/uuid.proto";
+
+enum RandomErrorCode {
+    RANDOM_ERROR_NONE = 0;
+    RANDOM_ERROR_SESSION_NOT_FOUND = 1;
+    RANDOM_ERROR_SYSTEM = 2;
+}
+
+message SeedRandomRequest {
+    UUID session_id = 1;
+    bytes seed = 2;
+}
+
+message SeedRandomResponse {
+    RandomErrorCode error_code = 1;
+}
+
+message GenerateRandomRequest {
+    UUID session_id = 1;
+    uint32 length = 2;
+}
+
+message GenerateRandomResponse {
+    RandomErrorCode error_code = 1;
+    bytes random = 2;
+}

@@ -13,3 +13,4 @@ Bohpien HSM supports the following functions:
 - Message digesting
 - Encryption functions
 - Decryption functions
+- Random number generation functions

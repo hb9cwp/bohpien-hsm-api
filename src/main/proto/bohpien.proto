@@ -5,6 +5,7 @@ package com.github.edipermadi.bohpien.api;
 import "providers/digest.proto";
 import "providers/encrypt.proto";
 import "providers/decrypt.proto";
+import "providers/random.proto";
 
 service BohpienService {
     // Message Digest Functions
@@ -31,5 +32,5 @@ service BohpienService {
 
     // Random Number Generation Functions
     rpc SeedRandom (SeedRandomRequest) returns (SeedRandomResponse);
-    rpc GenerateRandom (GenerateRandomRequest) returns (GenerateRandomRespons);
+    rpc GenerateRandom (GenerateRandomRequest) returns (GenerateRandomResponse);
 }

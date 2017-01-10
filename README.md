@@ -14,3 +14,19 @@ Bohpien HSM supports the following functions:
 - Encryption functions
 - Decryption functions
 - Random number generation functions
+
+## Building
+
+- Clone repository
+    
+    ```
+    $ git clone https://github.com/edipermadi/bohpien-hsm-api.git
+    ```
+
+- Build and install
+
+    ```
+    $ cd bohpien-hsm-api
+    $ mvn clean package install
+        
+    ``` 

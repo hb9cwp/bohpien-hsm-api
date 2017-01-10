@@ -6,6 +6,7 @@ import "providers/digest.proto";
 import "providers/encrypt.proto";
 import "providers/decrypt.proto";
 import "providers/random.proto";
+import "providers/sign.proto";
 
 service BohpienService {
     // Message Digest Functions
@@ -33,4 +34,11 @@ service BohpienService {
     // Random Number Generation Functions
     rpc SeedRandom (SeedRandomRequest) returns (SeedRandomResponse);
     rpc GenerateRandom (GenerateRandomRequest) returns (GenerateRandomResponse);
+
+    // Signing and MAC generation functions
+    rpc SignInit (SignInitRequest) returns (SignInitResponse);
+    rpc SignUpdate (SignUpdateRequest) returns (SignUpdateResponse);
+    rpc SignFinal (SignFinalRequest) returns (SignFinalResponse);
+    rpc SignInfo (SignInfoRequest) returns (SignInfoResponse);
+    rpc Sign (SignRequest) returns (SignResponse);
 }

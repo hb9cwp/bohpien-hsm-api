@@ -14,6 +14,7 @@ Bohpien HSM supports the following functions:
 - Encryption functions
 - Decryption functions
 - Random number generation functions
+- Signature generation function
 
 ## Building
 

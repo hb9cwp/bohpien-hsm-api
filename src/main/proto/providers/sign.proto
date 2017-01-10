@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+
+import "providers/uuid.proto";
+import "providers/signature.proto";
+
+enum SignErrorCode {
+    SIGN_ERROR_NONE = 0;
+    SIGN_ERROR_UNKNOWN_MECHANISM = 1;
+    SIGN_ERROR_SESSION_NOT_FOUND = 2;
+    SIGN_ERROR_KEY_NOT_FOUND = 3;
+    SIGN_ERROR_KEY_NOT_INAVLID = 4;
+    SIGN_ERROR_SYSTEM = 5;
+}
+
+message SignInitRequest {
+    SignatureMechanism mechanism = 1;
+    UUID key_id = 2;
+}
+
+message SignInitResponse {
+    SignErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message SignUpdateRequest {
+    UUID session_id = 1;
+    bytes data = 2;
+}
+
+message SignUpdateResponse {
+    SignErrorCode error_code = 1;
+}
+
+message SignFinalRequest {
+    UUID session_id = 1;
+}
+
+message SignFinalResponse {
+    SignErrorCode error_code = 1;
+    bytes signature = 2;
+}
+
+message SignInfoRequest {
+    UUID session_id = 1;
+}
+
+message SignInfoResponse {
+    SignErrorCode error_code = 1;
+    SignatureMechanism mechanism = 2;
+    UUID key_id = 3;
+}
+
+message SignRequest {
+    SignatureMechanism mechanism = 1;
+    bytes data = 2;
+    UUID key_id = 3;
+}
+
+message SignResponse {
+    SignErrorCode error_code = 1;
+    bytes signature = 2;
+}

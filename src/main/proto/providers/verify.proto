@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+option java_outer_classname = "VerifyProto";
+
+import "providers/uuid.proto";
+import "providers/signature.proto";
+
+enum VerifyErrorCode {
+    VERIFY_ERROR_NONE = 0;
+    VERIFY_ERROR_UNKNOWN_MECHANISM = 1;
+    VERIFY_ERROR_SESSION_NOT_FOUND = 2;
+    VERIFY_ERROR_KEY_NOT_FOUND = 3;
+    VERIFY_ERROR_KEY_INAVLID = 4;
+    VERIFY_ERROR_MISMATCH = 5;
+    VERIFY_ERROR_SYSTEM = 6;
+}
+
+message VerifyInitRequest {
+    SignatureMechanism mechanism = 1;
+    UUID key_id = 2;
+}
+
+message VerifyInitResponse {
+    VerifyErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message VerifyUpdateRequest {
+    UUID session_id = 1;
+    bytes data = 2;
+}
+
+message VerifyUpdateResponse {
+    VerifyErrorCode error_code = 1;
+}
+
+message VerifyFinalRequest {
+    UUID session_id = 1;
+    bytes signature = 2;
+}
+
+message VerifyFinalResponse {
+    VerifyErrorCode error_code = 1;
+}
+
+message VerifyInfoRequest {
+    UUID session_id = 1;
+}
+
+message VerifyInfoResponse {
+    VerifyErrorCode error_code = 1;
+}
+
+message VerifyRequest {
+    SignatureMechanism mechanism = 1;
+    UUID key_id = 2;
+    bytes data = 3;
+    bytes signature = 4;
+}
+
+message VerifyResponse {
+    VerifyErrorCode error_code = 1;
+}

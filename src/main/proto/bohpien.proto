@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 package com.github.edipermadi.bohpien.api;
+option java_outer_classname = "BohpienProto";
 
 import "providers/digest.proto";
 import "providers/encrypt.proto";

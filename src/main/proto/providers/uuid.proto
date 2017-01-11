@@ -1,8 +1,9 @@
 syntax = "proto3";
 
 package com.github.edipermadi.bohpien.api;
+option java_outer_classname = "UUIDProto";
 
-message UUID{
+message UUID {
     uint64 msb = 1;
     uint64 lsb = 2;
 }

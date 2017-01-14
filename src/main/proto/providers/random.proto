@@ -3,7 +3,7 @@ syntax = "proto3";
 package com.github.edipermadi.bohpien.api;
 option java_outer_classname = "RandomProto";
 
-import "providers/uuid.proto";
+import "providers/types.proto";
 
 enum RandomErrorCode {
     RANDOM_ERROR_NONE = 0;

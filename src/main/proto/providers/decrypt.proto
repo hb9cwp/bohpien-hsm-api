@@ -3,8 +3,7 @@ syntax = "proto3";
 package com.github.edipermadi.bohpien.api;
 option java_outer_classname = "DecipherProto";
 
-import "providers/uuid.proto";
-import "providers/cipher.proto";
+import "providers/types.proto";
 
 enum DecryptErrorCode {
     DECRYPT_ERROR_NONE = 0;

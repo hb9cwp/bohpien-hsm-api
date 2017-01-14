@@ -3,45 +3,7 @@ syntax = "proto3";
 package com.github.edipermadi.bohpien.api;
 option java_outer_classname = "DigestProto";
 
-import "providers/uuid.proto";
-
-enum DigestMechanism {
-    MD2 = 0;
-    MD4 = 1;
-    MD5 = 2;
-
-    RIPEMD_128 = 3;
-    RIPEMD_160 = 4;
-    RIPEMD_256 = 5;
-    RIPEMD_320 = 6;
-
-    SHA1 = 7;
-    SHA2_224 = 8;
-    SHA2_256 = 9;
-    SHA2_384 = 10;
-    SHA2_512 = 11;
-    SHA3_224 = 12;
-    SHA3_256 = 13;
-    SHA3_384 = 14;
-    SHA3_512 = 15;
-
-    KECCAK_224 = 16;
-    KECCAK_256 = 17;
-    KECCAK_384 = 18;
-    KECCAK_512 = 19;
-
-    SKEIN_256 = 20;
-    SKEIN_512 = 21;
-    SKEIN_1024 = 22;
-
-    GOST3411_256 = 23;
-    GOST3411_2012_256 = 24;
-    GOST3411_2012_512 = 25;
-
-    SM3_256 = 26;
-    TIGER_192 = 27;
-    WHIRLPOOL_512 = 28;
-}
+import "providers/types.proto";
 
 enum DigestErrorCode {
     DIGEST_ERROR_NONE = 0;

@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+option java_outer_classname = "CommonProto";
+
+message UUID {
+    uint64 msb = 1;
+    uint64 lsb = 2;
+}
+
+enum DigestMechanism {
+    MD2 = 0;
+    MD4 = 1;
+    MD5 = 2;
+
+    RIPEMD_128 = 3;
+    RIPEMD_160 = 4;
+    RIPEMD_256 = 5;
+    RIPEMD_320 = 6;
+
+    SHA1 = 7;
+    SHA2_224 = 8;
+    SHA2_256 = 9;
+    SHA2_384 = 10;
+    SHA2_512 = 11;
+    SHA3_224 = 12;
+    SHA3_256 = 13;
+    SHA3_384 = 14;
+    SHA3_512 = 15;
+
+    KECCAK_224 = 16;
+    KECCAK_256 = 17;
+    KECCAK_384 = 18;
+    KECCAK_512 = 19;
+
+    SKEIN_256 = 20;
+    SKEIN_512 = 21;
+    SKEIN_1024 = 22;
+
+    GOST3411_256 = 23;
+    GOST3411_2012_256 = 24;
+    GOST3411_2012_512 = 25;
+
+    SM3_256 = 26;
+    TIGER_192 = 27;
+    WHIRLPOOL_512 = 28;
+}
+
+enum SignatureMechanism {
+    HMAC_MD2 = 0;
+    HMAC_MD4 = 1;
+    HMAC_MD5 = 2;
+
+    HMAC_RIPEMD_128 = 3;
+    HMAC_RIPEMD_160 = 4;
+
+    HMAC_SHA1 = 5;
+    HMAC_SHA2_224 = 6;
+    HMAC_SHA2_256 = 7;
+    HMAC_SHA2_384 = 8;
+    HMAC_SHA2_512 = 9;
+    HMAC_SHA3_224 = 10;
+    HMAC_SHA3_256 = 11;
+    HMAC_SHA3_384 = 12;
+    HMAC_SHA3_512 = 13;
+
+    HMAC_KECCAK_224 = 14;
+    HMAC_KECCAK_256 = 15;
+    HMAC_KECCAK_384 = 16;
+    HMAC_KECCAK_512 = 17;
+
+    HMAC_SKEIN_256_128 = 18;
+    HMAC_SKEIN_256_160 = 19;
+    HMAC_SKEIN_256_224 = 20;
+    HMAC_SKEIN_256_256 = 21;
+
+    HMAC_SKEIN_512_128 = 22;
+    HMAC_SKEIN_512_160 = 23;
+    HMAC_SKEIN_512_224 = 24;
+    HMAC_SKEIN_512_256 = 25;
+    HMAC_SKEIN_512_384 = 26;
+    HMAC_SKEIN_512_512 = 27;
+    HMAC_SKEIN_1024_384 = 28;
+    HMAC_SKEIN_1024_512 = 29;
+    HMAC_SKEIN_1024_1024 = 30;
+
+    HMAC_GOST_3411 = 31;
+    HMAC_GOST_3411_2012_256 = 32;
+    HMAC_GOST_3411_2012_512 = 33;
+
+    HMAC_VMPC = 34;
+    HMAC_SIPHASH_2_4 = 35;
+    HMAC_SIPHASH_4_8 = 36;
+    HMAC_TIGER = 37;
+    HMAC_POLY1305_AES = 38;
+    HMAC_POLY1305_SERPENT = 39;
+}
+
+enum CipherAlgorithm {
+    AES = 0;
+    AES_WRAP = 1;
+    BLOWFISH = 2;
+    CAMELLIA = 3;
+    CAMELLIA_WRAP = 4;
+    CAST5 = 5;
+    CAST6 = 6;
+    DES = 7;
+    DES_EDE = 8;
+    DES_EDE_WRAP = 9;
+    GOST28147 = 10;
+    IDEA = 11;
+    NEOKEON = 12;
+    RC2 = 13;
+    RC5_32 = 14;
+    RC5_64 = 15;
+    RC6 = 16;
+    SEED = 17;
+    SEED_WRAP = 18;
+    SHACAL2 = 19;
+    SERPENT = 20;
+    SKIPJACK = 21;
+    TEA = 22;
+    THREEFISH = 23;
+    TWOFISH = 24;
+    XTEA = 25;
+}
+
+enum CipherMode {
+    ECB = 0;
+    CBC = 1;
+    CFB = 2;
+    OCB = 3;
+    OFB = 4;
+    CTR = 5;
+    CCM = 6;
+    GCM = 7;
+    GCF = 8;
+    EAX = 9;
+    GOFB = 10;
+}
+
+enum CipherPadding {
+    ZERO = 0;
+    PKCS7 = 1;
+    ISO10126_2 = 2;
+    X932 = 3;
+    ISO7816_4 = 4;
+}

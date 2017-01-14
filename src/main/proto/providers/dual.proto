@@ -1,0 +1,197 @@
+syntax = "proto3";
+
+package com.github.edipermadi.bohpien.api;
+option java_outer_classname = "DualProto";
+
+import "providers/types.proto";
+
+enum DualOperationErrorCode {
+    DUAL_OPERATION_ERROR_NONE = 0;
+    DUAL_OPERATION_ERROR_UNKNOWN_MECHANISM = 1;
+    DUAL_OPERATION_ERROR_SESSION_NOT_FOUND = 2;
+    DUAL_OPERATION_ERROR_KEY_NOT_FOUND = 3;
+    DUAL_OPERATION_ERROR_KEY_INAVLID = 4;
+    DUAL_OPERATION_ERROR_PADDING_INAVLID = 5;
+    DUAL_OPERATION_ERROR_SYSTEM = 6;
+}
+
+message DigestEncryptInitRequest {
+    DigestMechanism digest_mechanism = 1;
+    CipherAlgorithm cipher_algorithm = 2;
+    CipherMode cipher_mode = 3;
+    CipherPadding cipher_padding = 4;
+    UUID key_id = 5;
+}
+
+message DigestEncryptInitResponse {
+    DualOperationErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message DigestEncryptUpdateRequest {
+    UUID session_id = 1;
+    bytes plaintext = 2;
+}
+
+message DigestEncryptUpdateResponse {
+    DualOperationErrorCode error_code = 1;
+}
+
+message DigestEncryptFinalRequest {
+    UUID session_id = 1;
+}
+
+message DigestEncryptFinalResponse {
+    DualOperationErrorCode error_code = 1;
+    bytes digest = 2;
+    bytes ciphertext = 3;
+}
+
+message DigestEncryptInfoRequest {
+    UUID session_id = 1;
+}
+
+message DigestEncryptInfoResponse {
+    DualOperationErrorCode error_code = 1;
+    DigestMechanism digest_mechanism = 2;
+    CipherAlgorithm cipher_algorithm = 3;
+    CipherMode cipher_mode = 4;
+    CipherPadding cipher_padding = 5;
+    UUID key_id = 6;
+}
+
+message DecryptDigestInitRequest {
+    DigestMechanism digest_mechanism = 1;
+    CipherAlgorithm cipher_algorithm = 2;
+    CipherMode cipher_mode = 3;
+    CipherPadding cipher_padding = 4;
+    UUID key_id = 5;
+}
+
+message DecryptDigestInitResponse {
+    DualOperationErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message DecryptDigestUpdateRequest {
+    UUID session_id = 1;
+    bytes ciphertext = 2;
+}
+
+message DecryptDigestUpdateResponse {
+    DualOperationErrorCode error_code = 1;
+}
+
+message DecryptDigestFinalRequest {
+    UUID session_id = 1;
+}
+
+message DecryptDigestFinalResponse {
+    DualOperationErrorCode error_code = 1;
+    bytes digest = 2;
+    bytes plaintext = 3;
+}
+
+message DecryptDigestInfoRequest {
+    UUID session_id = 1;
+}
+
+message DecryptDigestInfoResponse {
+    DualOperationErrorCode error_code = 1;
+    DigestMechanism digest_mechanism = 2;
+    CipherAlgorithm cipher_algorithm = 3;
+    CipherMode cipher_mode = 4;
+    CipherPadding cipher_padding = 5;
+    UUID key_id = 6;
+}
+
+message SignEncryptInitRequest {
+    SignatureMechanism signature_mechanism = 1;
+    CipherAlgorithm cipher_algorithm = 2;
+    CipherMode cipher_mode = 3;
+    CipherPadding cipher_padding = 4;
+    UUID key_id = 5;
+}
+
+message SignEncryptInitResponse {
+    DualOperationErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message SigEncryptUpdateRequest {
+    UUID session_id = 1;
+    bytes plaintext = 2;
+}
+
+message SigEncryptUpdateResponse {
+    DualOperationErrorCode error_code = 1;
+}
+
+message SignEncryptFinalRequest {
+    UUID session_id = 1;
+}
+
+message SignEncryptFinalResponse {
+    DualOperationErrorCode error_code = 1;
+    bytes signature = 2;
+    bytes ciphertext = 3;
+}
+
+message SignEncryptInfoRequest {
+    UUID session_id = 1;
+}
+
+message SignEncryptInfoResponse {
+    DualOperationErrorCode error_code = 1;
+    SignatureMechanism signature_mechanism = 2;
+    CipherAlgorithm cipher_algorithm = 3;
+    CipherMode cipher_mode = 4;
+    CipherPadding cipher_padding = 5;
+    UUID key_id = 6;
+}
+
+message DecryptVerifyInitRequest {
+    SignatureMechanism signature_mechanism = 1;
+    CipherAlgorithm cipher_algorithm = 2;
+    CipherMode cipher_mode = 3;
+    CipherPadding cipher_padding = 4;
+    UUID key_id = 5;
+}
+
+message DecryptVerifyInitResponse {
+    DualOperationErrorCode error_code = 1;
+    UUID session_id = 2;
+}
+
+message DecryptVerifyUpdateRequest {
+    UUID session_id = 1;
+    bytes ciphertext = 2;
+}
+
+message DecryptVerifyUpdateResponse {
+    DualOperationErrorCode error_code = 1;
+}
+
+message DecryptVerifyFinalRequest {
+    UUID session_id = 1;
+    bytes signature = 2;
+}
+
+message DecryptVerifyFinalResponse {
+    DualOperationErrorCode error_code = 1;
+    bool signature_match = 2;
+    bytes plaintext = 3;
+}
+
+message DecryptVerifyInfoRequest {
+    UUID session_id = 1;
+}
+
+message DecryptVerifyInfoResponse {
+    DualOperationErrorCode error_code = 1;
+    SignatureMechanism signature_mechanism = 2;
+    CipherAlgorithm cipher_algorithm = 3;
+    CipherMode cipher_mode = 4;
+    CipherPadding cipher_padding = 5;
+    UUID key_id = 6;
+}

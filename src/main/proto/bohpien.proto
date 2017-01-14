@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package com.github.edipermadi.bohpien.api;
 
+import "providers/dual.proto";
 import "providers/digest.proto";
 import "providers/encrypt.proto";
 import "providers/decrypt.proto";
@@ -49,4 +50,22 @@ service BohpienService {
     rpc VerifyFinal (VerifyFinalRequest) returns (VerifyFinalResponse);
     rpc VerifyInfo (VerifyInfoRequest) returns (VerifyInfoResponse);
     rpc Verify (VerifyRequest) returns (VerifyResponse);
+
+    // Dual Operation Functions
+    rpc DigestEncryptInit (DigestEncryptInitRequest) returns (DigestEncryptInitResponse);
+    rpc DigestEncryptUpdate (DigestEncryptUpdateRequest) returns (DigestEncryptUpdateResponse);
+    rpc DigestEncryptFinal (DigestEncryptFinalRequest) returns (DigestEncryptFinalResponse);
+    rpc DigestEncryptInfo (DigestEncryptInfoRequest) returns (DigestEncryptInfoResponse);
+    rpc DecryptDigestInit (DecryptDigestInitRequest) returns (DecryptDigestInitResponse);
+    rpc DecryptDigestUpdate (DecryptDigestUpdateRequest) returns (DecryptDigestUpdateResponse);
+    rpc DecryptDigestFinal (DecryptDigestFinalRequest) returns (DecryptDigestFinalResponse);
+    rpc DecryptDigestInfo (DecryptDigestInfoRequest) returns (DecryptDigestInfoResponse);
+    rpc SignEncryptInit (SignEncryptInitRequest) returns (SignEncryptInitResponse);
+    rpc SigEncryptUpdate (SigEncryptUpdateRequest) returns (SigEncryptUpdateResponse);
+    rpc SignEncryptFinal (SignEncryptFinalRequest) returns (SignEncryptFinalResponse);
+    rpc SignEncryptInfo (SignEncryptInfoRequest) returns (SignEncryptInfoResponse);
+    rpc DecryptVerifyInit (DecryptVerifyInitRequest) returns (DecryptVerifyInitResponse);
+    rpc DecryptVerifyUpdate (DecryptVerifyUpdateRequest) returns (DecryptVerifyUpdateResponse);
+    rpc DecryptVerifyFinal (DecryptVerifyFinalRequest) returns (DecryptVerifyFinalResponse);
+    rpc DecryptVerifyInfo (DecryptVerifyInfoRequest) returns (DecryptVerifyInfoResponse);
 }
